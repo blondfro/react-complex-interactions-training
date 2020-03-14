@@ -6,16 +6,24 @@ import Card from "./components/Card";
 function App() {
   const [toggleLogo, setToggleLogo] = useState(true);
   const [cards, setCards] = useState([
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
-    { id: 4 },
-    { id: 5 },
-    { id: 6 }
+    { id: 0, animation: "card" },
+    { id: 1, animation: "card" },
+    { id: 2, animation: "card" },
+    { id: 3, animation: "card" },
+    { id: 4, animation: "card" },
+    { id: 5, animation: "card" }
   ]);
 
   const onToggleLogo = () => {
     setToggleLogo(!toggleLogo);
+  };
+
+  const clickCard = card => {
+    let tmpCards = [...cards];
+    // console.log(tmpCards[card.id].animation);
+    tmpCards[card.id].animation = "card animated zoomOut";
+    console.log(tmpCards);
+    setCards(tmpCards);
   };
 
   return (
@@ -33,7 +41,12 @@ function App() {
       </header>
       <div className="Grid">
         {cards.map(card => (
-          <Card duration={150} key={card.id} />
+          <Card
+            duration={150}
+            key={card.id}
+            card={card}
+            clickCard={clickCard}
+          />
         ))}
       </div>
     </div>

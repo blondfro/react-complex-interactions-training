@@ -1,9 +1,9 @@
 import React from "react";
 import "./Card.css";
 
-function Card() {
+function Card({ duration, card, clickCard, ...props }) {
   return (
-    <div className="card">
+    <div className={card.animation} onClick={() => clickCard(card)}>
       <img
         src={process.env.PUBLIC_URL + "/juice.jpg"}
         alt="Vitamin Juice"
