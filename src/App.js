@@ -23,9 +23,10 @@ function App() {
       <header className="App-header">
         <img
           src={logo}
-          className={toggleLogo ? "App-logo" : "static-logo"}
+          className={toggleLogo ? "static-logo" : "static-logo animated jello"}
           alt="logo"
-          onClick={onToggleLogo}
+          onMouseEnter={() => onToggleLogo()}
+          onMouseLeave={() => onToggleLogo()}
         />
         <h1>Welcome to React</h1>
         <button onClick={onToggleLogo}>Click Me</button>
