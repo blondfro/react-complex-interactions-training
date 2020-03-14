@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "./logo.png";
 import "./App.css";
 import Card from "./components/Card";
+import Loading from "./components/Loading";
 
 function App() {
   const [toggleLogo, setToggleLogo] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [cards, setCards] = useState([
     { id: 0, animation: "card" },
     { id: 1, animation: "card" },
@@ -13,6 +15,10 @@ function App() {
     { id: 4, animation: "card" },
     { id: 5, animation: "card" }
   ]);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 3000);
+  }, []);
 
   const onToggleLogo = () => {
     setToggleLogo(!toggleLogo);
@@ -39,16 +45,20 @@ function App() {
         <h1>Welcome to React</h1>
         <button onClick={onToggleLogo}>Click Me</button>
       </header>
-      <div className="Grid">
-        {cards.map(card => (
-          <Card
-            duration={150}
-            key={card.id}
-            card={card}
-            clickCard={clickCard}
-          />
-        ))}
-      </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="Grid">
+          {cards.map(card => (
+            <Card
+              duration={150}
+              key={card.id}
+              card={card}
+              clickCard={clickCard}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
