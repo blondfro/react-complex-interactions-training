@@ -1,9 +1,12 @@
 .spinner {
     width: 80px;
     height: 80px;
-
     position: relative;
     margin: 100px auto;
+}
+
+h1 {
+    color: black;
 }
 
 .double-bounce1, .double-bounce2 {

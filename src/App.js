@@ -46,7 +46,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Welcome to Company</h1>
         <img
           src={logo}
           className={toggleLogo ? "static-logo" : "static-logo animated jello"}
