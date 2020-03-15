@@ -3,6 +3,7 @@ import logo from "./logo.png";
 import "./App.css";
 import Card from "./components/Card";
 import Loading from "./components/Loading";
+import Navigation from "./components/Navigation";
 
 function App() {
   const [toggleLogo, setToggleLogo] = useState(true);
@@ -32,17 +33,28 @@ function App() {
     setCards(tmpCards);
   };
 
+  const openNav = () => {
+    document.getElementById("myNav").style.width = "100%";
+  };
+
+  const closeNav = () => {
+    document.getElementById("myNav").style.width = "0%";
+  };
+
   return (
     <div className="App">
       <header className="App-header">
+        <h1>Welcome to Company</h1>
         <img
           src={logo}
           className={toggleLogo ? "static-logo" : "static-logo animated jello"}
           alt="logo"
           onMouseEnter={() => onToggleLogo()}
           onMouseLeave={() => onToggleLogo()}
+          onClick={openNav}
         />
-        <h1>Welcome to React</h1>
+
+        <Navigation closeNav={closeNav} />
         <button onClick={onToggleLogo}>Click Me</button>
       </header>
       {loading ? (

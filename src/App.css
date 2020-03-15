@@ -24,6 +24,7 @@ body {
 
 .static-logo {
   height: 100px;
+  cursor: pointer;
 }
 
 /*@media (prefers-reduced-motion: no-preference) {*/
