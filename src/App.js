@@ -55,9 +55,13 @@ function App() {
           onMouseLeave={() => onToggleLogo()}
           onClick={openNav}
         />
-
+        <h1
+          className={toggleLogo ? "menu-hidden" : "menu animated bounceInDown"}
+          onClick={openNav}
+        >
+          Menu
+        </h1>
         <Navigation closeNav={closeNav} />
-        <button onClick={onToggleLogo}>Click Me</button>
       </header>
       {loading ? (
         <Loading />
